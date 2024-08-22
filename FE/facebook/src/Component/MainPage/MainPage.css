@@ -1,0 +1,27 @@
+.mainpage_container {
+    height: 650px;
+    background-color: #EFF2F5;
+}
+
+.imageLayout_container {
+    display: flex;
+    margin: 10px;
+}
+.imageLayout_imglay {
+
+}
+.imageLayout_avatar {
+    max-height: 30px;
+    max-width: 30px;
+    margin-top: 5px;
+}
+.imageLayout_name {
+    font-weight: 500;
+    margin: 10px;
+    font-size: 15px;
+}
+.middleContainer {
+    margin-left: 50px !important;
+    overflow-y: scroll;
+    height: 650px;
+}

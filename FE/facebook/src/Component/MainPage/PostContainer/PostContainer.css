@@ -1,0 +1,60 @@
+.post_container {
+    width: 600px;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+.post_header {
+    display: flex;
+    height: 65px;
+}
+.post_header_avatar {
+    
+}
+.post_avatar {
+    margin: 15px;
+}
+.post_header_name {
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.post_description {
+    display: flex;
+    font-size: 14px;
+    margin-left: 15px;
+}
+.post_image {
+    margin: 10px 0px;
+}
+.post_likecountContainer {
+    display: flex;
+    height: 40px;
+    padding: 0 10px;;
+}
+.post_like {
+    
+}
+.post_img {
+    height: 20px;
+}
+.post_likecount {
+    margin-left: 5px;
+}
+.post_likeShare {
+    display: flex;
+    height: 50px;
+    margin-left: 100px;
+}
+.post_tab {
+    display: flex;
+    width: 200px;
+}
+.post_tabHead {
+    
+}
+.post_tabIcon {
+    width: 30px;
+}
+.post_tabText {
+    margin: 5px;
+}
