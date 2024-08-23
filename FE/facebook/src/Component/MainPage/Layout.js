@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import StatusBar from './StatusBar/StatusBar';
 import UploadSection from './UploadSection/UploadSection';
 import PostContainer from './PostContainer/PostContainer';
+import RightSide from './RightSidePanel/RightSide';
 
  const Layout = () => {
     return (
@@ -19,7 +20,7 @@ import PostContainer from './PostContainer/PostContainer';
                     <PostContainer />
                 </Grid>
                 <Grid item xs={3}>
-                    right
+                    <RightSide />
                 </Grid>
             </Grid>
         </div>

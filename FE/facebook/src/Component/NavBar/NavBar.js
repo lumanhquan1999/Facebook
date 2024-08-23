@@ -16,7 +16,7 @@ const NavBar = () => {
                 <Grid item xs = {3}>
                     <div className="navbar_leftbar">
                         <img className="navbar_logo" src={fblogo} width="75px" />
-                        <input className="navbar_search" type="text" placeholder="Tìm kiếm trên Facebook" />
+                        <input className="navbar_search" type="text" placeholder="Search Facebook" />
                     </div>
                 </Grid>
                 <Grid item xs = {6}>

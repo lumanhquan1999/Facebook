@@ -25,11 +25,13 @@
 }
 .post_image {
     margin: 10px 0px;
+    width: 600px;
 }
 .post_likecountContainer {
     display: flex;
     height: 40px;
     padding: 0 10px;;
+    border-bottom: 1px solid #E6E7E9;
 }
 .post_like {
     
@@ -42,8 +44,9 @@
 }
 .post_likeShare {
     display: flex;
-    height: 50px;
+    height: 30x;
     margin-left: 100px;
+    margin-top: 5px;
 }
 .post_tab {
     display: flex;
@@ -57,4 +60,22 @@
 }
 .post_tabText {
     margin: 5px;
+}
+.post_comment {
+    display: flex;
+    border-top: 1px solid #E6E7E9;
+}
+.post_commentAvatar {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.post_commentBox {
+    height: 40px;
+    width: 480px;
+    border: 8px;
+    background-color: #EFF2F5;
+    border-radius: 30px;
+    font-size: 15px;
+    padding-left: 20px;
+    margin: 15px;
 }

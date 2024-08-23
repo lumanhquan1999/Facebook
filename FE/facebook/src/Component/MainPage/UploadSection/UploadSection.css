@@ -5,6 +5,7 @@
 }
 .upload_top {
     display: flex;
+    border-bottom: 1px solid #E3E6EA;
 }
 .upload_img {
     margin-top: 15px;
@@ -21,7 +22,6 @@
     margin: 15px;
 }
 .upload_bottom {
-    border-top: 1px solid #E3E6EA;
     display: flex;
     margin-left: 60px;
     padding-top: 5px;

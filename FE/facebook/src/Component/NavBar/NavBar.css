@@ -16,6 +16,7 @@
 }
 .navbar_main {
     border-bottom: 1px solid #D8DBDE;
+    overflow-y: visible;
 }
 .navbar_container {
     display: flex;

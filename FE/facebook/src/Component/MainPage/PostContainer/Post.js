@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { Avatar, Paper } from "@mui/material";
 import "./PostContainer.css";
 import like from "../../../images/like.png"
@@ -5,26 +6,38 @@ import likebutton from "../../../images/likebutton.png"
 import comment from "../../../images/comment.png"
 import share from "../../../images/share.png"
 
-const Post = () => {
-    return ( 
-        <div>
+class Post extends Component {
+    constructor(props) {
+        super(props);
+    }
+    state = {  }
+
+    isImageAvailable=(data) => {
+        return data == "" ? false : true;
+    }
+
+    render() { 
+        return (
+            <div>
             <Paper className="post_container">
                 {/* header */}
                 <div className="post_header">
                     <div className="post_header_avatar">
-                        <Avatar className="post_avatar" src="https://scontent-hkg4-2.xx.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=qpkbNpQcWu8Q7kNvgG0DyuM&_nc_ht=scontent-hkg4-2.xx&oh=00_AYAEANLIfGWw0p9YUeQ5-zXko4dYEfpMs_iMoPEw8HTHww&oe=66EBAE7A" />
+                        <Avatar className="post_avatar" src={this.props.object.userImage} />
                     </div>
                     <div className="post_header_name">
-                        Lư Quân
+                        {this.props.object.userName}
                     </div>
                 </div>
                 {/* description */}
                 <div className="post_description">
-                    Hello World!
+                    {this.props.object.description}
                 </div>
                 {/* image */}
                 <div className="post_image">
-                    <img width="600px" src="https://i.pinimg.com/736x/cc/6a/c7/cc6ac70a44e912067cafe760623266b1.jpg" />
+                    {
+                        this.isImageAvailable() ? <img width="600px" src={this.props.object.postImage} /> : <span></span>
+                    }
                 </div>
                 {/* like count */}
                 <div className="post_likecountContainer">
@@ -32,7 +45,7 @@ const Post = () => {
                         <img className="post_img" src={like} />
                     </div>
                     <div className="post_likecount">
-                        25
+                        {this.props.object.like}
                     </div>
                 </div>
                 {/* like comment share */}
@@ -63,12 +76,18 @@ const Post = () => {
                     </div>
                 </div>
                 {/* comment */}
-                <div>
-
+                <div className="post_comment">
+                    <div>
+                        <Avatar className="post_commentAvatar" src="https://scontent-hkg4-2.xx.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=qpkbNpQcWu8Q7kNvgG0DyuM&_nc_ht=scontent-hkg4-2.xx&oh=00_AYAEANLIfGWw0p9YUeQ5-zXko4dYEfpMs_iMoPEw8HTHww&oe=66EBAE7A" />
+                    </div>
+                    <div>
+                        <input className="post_commentBox" placeholder="What's on your mind ?" type="text" />
+                    </div>
                 </div>
             </Paper>
         </div>
-     );
+        );
+    }
 }
- 
+
 export default Post;
