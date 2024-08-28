@@ -6,10 +6,10 @@ import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.facebook.entity.Post;
+import com.example.facebook.entity.Status;
 
 @Repository
-public interface PostRepository extends CrudRepository<Post, UUID> {
-	
-	ArrayList<Post> findAll();
+public interface StatusRepository extends CrudRepository<Status, UUID> {
+
+	ArrayList<Status> findAll();
 }

@@ -30,7 +30,7 @@ public class PostServiceImp implements PostService {
 	@Override
 	public ArrayList<Post> getAllPost() {
 		// TODO Auto-generated method stub
-		return (ArrayList<Post>) postRepository.findAll();
+		return postRepository.findAll();
 	}
 
 	@Override
