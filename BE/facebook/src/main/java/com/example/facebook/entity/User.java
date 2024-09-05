@@ -1,7 +1,6 @@
 package com.example.facebook.entity;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,8 +10,7 @@ import jakarta.persistence.Id;
 public class User {
 
 	@Id
-	@GeneratedValue
-	private UUID userId;
+	private String userId;
 	
 	private String userName;
 	private String userImageURL;
@@ -22,7 +20,7 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(UUID userId, String userName, String userImageURL, boolean active, Timestamp joinedDate) {
+	public User(String userId, String userName, String userImageURL, boolean active, Timestamp joinedDate) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -30,10 +28,10 @@ public class User {
 		this.active = active;
 		this.joinedDate = joinedDate;
 	}
-	public UUID getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(UUID userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {

@@ -7,5 +7,17 @@
     height: 245px;
     width: 140px;
     margin: 20px 5px;
+    border-radius: 15px !important; 
+}
+.upload_icon {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.statusbar_status > input {
+    display: none;
+}
+.status_image {
+    height: 245px;
+    width: 140px;
     border-radius: 15px;
 }

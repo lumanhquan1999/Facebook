@@ -1,7 +1,6 @@
 package com.example.facebook.service;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 import com.example.facebook.entity.User;
 
@@ -11,5 +10,5 @@ public interface UserService {
 	
 	ArrayList<User> getAllUser();
 	
-	User getUserByID(UUID userId);
+	User getUserByID(String userId);
 }

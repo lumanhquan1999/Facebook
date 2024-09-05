@@ -4,26 +4,28 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.facebook.entity.Status;
 import com.example.facebook.service.StatusService;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/api/statusRequest")
+@RequestMapping("/api/statusService")
 public class StatusController {
 	
 	@Autowired
 	StatusService statusService;
 
 	@PostMapping("/save")
-	public Status createStatus(@RequestParam Status status) {
+	public Status createStatus(@RequestBody Status status) {
 		return statusService.save(status);
 	}
 	

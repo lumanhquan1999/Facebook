@@ -36,7 +36,7 @@ class Post extends Component {
                 {/* image */}
                 <div className="post_image">
                     {
-                        this.isImageAvailable() ? <img width="600px" src={this.props.object.postImage} /> : <span></span>
+                        this.isImageAvailable() ? <img width="600px" src={this.props.object.postImgURL} /> : <span></span>
                     }
                 </div>
                 {/* like count */}

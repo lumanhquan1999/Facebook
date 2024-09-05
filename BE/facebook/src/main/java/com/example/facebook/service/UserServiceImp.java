@@ -3,7 +3,6 @@ package com.example.facebook.service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,6 @@ public class UserServiceImp implements UserService {
 	public User save(User user) {
 		Date date = new Date();
 		Timestamp timestamp = new Timestamp(date.getTime());
-		user.setUserId(UUID.randomUUID());
 		user.setActive(true);
 		user.setJoinedDate(timestamp);
 		return userRepository.save(user);
@@ -33,7 +31,7 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public User getUserByID(UUID userId) {
+	public User getUserByID(String userId) {
 		return userRepository.findAllByUserId(userId);
 	}
 	

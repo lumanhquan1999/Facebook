@@ -14,7 +14,7 @@ public class Status {
 	@GeneratedValue
 	private UUID statusId;
 	
-	private UUID userId;
+	private String userId;
 	private String statusImageURL;
 	private Timestamp uploadTime;
 	public Status() {
@@ -27,10 +27,10 @@ public class Status {
 	public void setStatusId(UUID statusId) {
 		this.statusId = statusId;
 	}
-	public UUID getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(UUID userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getStatusImageURL() {
@@ -45,7 +45,7 @@ public class Status {
 	public void setUploadTime(Timestamp uploadTime) {
 		this.uploadTime = uploadTime;
 	}
-	public Status(UUID statusId, UUID userId, String statusImageURL, Timestamp uploadTime) {
+	public Status(UUID statusId, String userId, String statusImageURL, Timestamp uploadTime) {
 		super();
 		this.statusId = statusId;
 		this.userId = userId;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.facebook.entity.User;
 import com.example.facebook.service.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/userService")
 public class UserController {
@@ -32,7 +34,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/getUser/{userId}")
-	public User getUser(@PathVariable("userId") UUID userId) {
+	public User getUser(@PathVariable("userId") String userId) {
 		return userService.getUserByID(userId);
 	}
 }

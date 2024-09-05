@@ -23,7 +23,7 @@ public class StatusServiceImp implements StatusService {
 		Timestamp timestamp = new Timestamp(date.getTime());
 		status.setStatusId(UUID.randomUUID());
 		status.setUploadTime(timestamp);
-		return null;
+		return statusRepository.save(status);
 	}
 
 	@Override

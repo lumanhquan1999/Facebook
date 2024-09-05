@@ -15,7 +15,7 @@ public class Post {
 	@GeneratedValue
 	private UUID postId;
 	
-	private UUID userId;
+	private String userId;
 	private String userName;
 	private String imageURL;
 	private String description;
@@ -27,7 +27,7 @@ public class Post {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Post(UUID postId, UUID userId, String userName, String imageURL, String description, String postImgURL,
+	public Post(UUID postId, String userId, String userName, String imageURL, String description, String postImgURL,
 			int likes, Timestamp dateTime) {
 		super();
 		this.postId = postId;
@@ -46,10 +46,10 @@ public class Post {
 	public void setPostId(UUID postId) {
 		this.postId = postId;
 	}
-	public UUID getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(UUID userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
