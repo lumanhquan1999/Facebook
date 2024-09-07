@@ -12,4 +12,5 @@ import com.example.facebook.entity.Post;
 public interface PostRepository extends CrudRepository<Post, UUID> {
 	
 	ArrayList<Post> findAll();
+	Post findByPostId(UUID postId);
 }

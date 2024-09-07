@@ -3,9 +3,13 @@ package com.example.facebook.entity;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Comment {
@@ -14,23 +18,33 @@ public class Comment {
 	@GeneratedValue
 	private UUID commentId;
 	
-	private UUID postId;
-	private UUID userId;
+	//private UUID postId;
+
+	//private UUID userId;
 	private String comment;
 	private Timestamp dateTime;
+	@ManyToOne
+    @JoinColumn(name = "post_id", nullable = false)
+	@JsonIgnore
+	private Post post;
+	@ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+	private User user;
 	
 	public Comment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comment(UUID commentId, UUID postId, UUID userId, String comment, Timestamp dateTime) {
+	public Comment(UUID commentId, User user, String comment, Timestamp dateTime, Post post) {
+		
 		super();
 		this.commentId = commentId;
-		this.postId = postId;
-		this.userId = userId;
+		//this.postId = postId;
+		this.user = user;
 		this.comment = comment;
 		this.dateTime = dateTime;
+		this.post = post;
 	}
 
 	public UUID getCommentId() {
@@ -41,20 +55,20 @@ public class Comment {
 		this.commentId = commentId;
 	}
 
-	public UUID getPostId() {
-		return postId;
+//	public UUID getPostId() {
+//		return cus_postId;
+//	}
+//
+//	public void setPostId(UUID postId) {
+//		this.cus_postId = postId;
+//	}
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setPostId(UUID postId) {
-		this.postId = postId;
-	}
-
-	public UUID getUserId() {
-		return userId;
-	}
-
-	public void setUserId(UUID userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getComment() {
@@ -73,4 +87,12 @@ public class Comment {
 		this.dateTime = dateTime;
 	}
 	
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
 }
+

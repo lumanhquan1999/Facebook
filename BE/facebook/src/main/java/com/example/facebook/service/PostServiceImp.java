@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.facebook.entity.Post;
+import com.example.facebook.repository.CommentRepository;
 import com.example.facebook.repository.PostRepository;
 
 @Service
@@ -29,8 +30,9 @@ public class PostServiceImp implements PostService {
 
 	@Override
 	public ArrayList<Post> getAllPost() {
-		// TODO Auto-generated method stub
-		return postRepository.findAll();
+		ArrayList<Post> result = postRepository.findAll();
+		
+		return result;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./MainPage.css";
 import { Avatar } from '@mui/material';
 import Badge from '@mui/material/Badge';

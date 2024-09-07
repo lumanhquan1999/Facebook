@@ -1,13 +1,12 @@
 package com.example.facebook.service;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
+import com.example.facebook.dto.CommentDTO;
 import com.example.facebook.entity.Comment;
 
 public interface CommentService {
 
-	Comment createComment(Comment comment);
-	ArrayList<Comment> getAllComment(UUID postId);
+	Comment createComment(CommentDTO comment);
 	void deleteComment(UUID commentId);
 }

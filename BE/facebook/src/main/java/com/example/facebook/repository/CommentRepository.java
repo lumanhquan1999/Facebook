@@ -11,5 +11,4 @@ import com.example.facebook.entity.Comment;
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, UUID> {
 
-	ArrayList<Comment> findAllByPostId(UUID postId);
 }

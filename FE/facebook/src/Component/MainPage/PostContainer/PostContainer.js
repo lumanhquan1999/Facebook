@@ -34,7 +34,7 @@ const PostContainer = forwardRef((props, ref) => {
         <div>
             {
                 post && post.map((item) => (
-                    <Post object={item} />
+                    <Post object={item} getData={getData} />
                 ))
             }
         </div>

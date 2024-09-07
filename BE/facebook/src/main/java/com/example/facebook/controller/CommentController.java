@@ -1,18 +1,17 @@
 package com.example.facebook.controller;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.facebook.dto.CommentDTO;
 import com.example.facebook.entity.Comment;
 import com.example.facebook.service.CommentService;
 
@@ -25,13 +24,8 @@ public class CommentController {
 	CommentService commentService;
 
 	@PostMapping("/save")
-	public Comment createComment(@RequestParam Comment comment) {
+	public Comment createComment(@RequestBody CommentDTO comment) {
 		return commentService.createComment(comment);
-	}
-	
-	@GetMapping("/getComment/{statusId}")
-	public ArrayList<Comment> getAllComment(@PathVariable("statusId") UUID statusId) {
-		return commentService.getAllComment(statusId);
 	}
 	
 	@DeleteMapping("/delete/{commentId}")

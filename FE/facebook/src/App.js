@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       {
-        localStorage.getItem("user") == undefined ? <LoginHome /> : <span><NavBar /><Layout /></span>
+        localStorage.getItem("user") == undefined ? <LoginHome /> : <div className="main"><NavBar /><Layout /></div>
       }
     </div>
   );

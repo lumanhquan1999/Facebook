@@ -1,10 +1,15 @@
 package com.example.facebook.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity(name="User")
 public class User {
@@ -16,17 +21,21 @@ public class User {
 	private String userImageURL;
 	private boolean active;
 	private Timestamp joinedDate;
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Comment> comments;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(String userId, String userName, String userImageURL, boolean active, Timestamp joinedDate) {
+	public User(String userId, String userName, String userImageURL, boolean active, Timestamp joinedDate, List<Comment> comments) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userImageURL = userImageURL;
 		this.active = active;
 		this.joinedDate = joinedDate;
+		this.comments = comments;
 	}
 	public String getUserId() {
 		return userId;
@@ -57,6 +66,12 @@ public class User {
 	}
 	public void setJoinedDate(Timestamp joinedDate) {
 		this.joinedDate = joinedDate;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
 	

@@ -87,63 +87,64 @@ class LoginHome extends Component {
             <div className="main_container">
                 <Grid container>
                     <Grid item xs={2}></Grid>
-                    <Grid className="logincard_mid" item xs={8}>
-                        <div className="fblogo">
-                            <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" width="240px" />
-                        </div>
-                        <Paper className="logincard_container">
-                            {
-                                this.state.signIN == true ?
-                            
-                                <div container="login_panel" >
-                                    <div className="login_header">
-                                        Log in to Facebook
+                    <Grid item xs={8}>
+                        <div className="logincard_mid">
+                            <div className="fblogo">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" width="240px" />
+                            </div>
+                            <Paper className="logincard_container">
+                                {
+                                    this.state.signIN == true ?
+                                
+                                    <div container="login_panel" >
+                                        <div className="login_header">
+                                            Log in to Facebook
+                                        </div>
+                                        <div>
+                                            <input onChange={(event)=>{this.state.signin_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
+                                        </div>
+                                        <div>
+                                            <input onChange={(event)=>{this.state.signin_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
+                                        </div>
+                                        <div>
+                                            <button onClick={this.signInMethod} className="login_button">Log in</button>
+                                        </div>
+                                        <div className="forget_Text">
+                                            <span>Forgotten account?</span>
+                                            <span onClick={this.switchPanel}>Sign up for Facebook</span>
+                                        </div>
+                                        {/* <div>
+                                            <div className="dividor"></div>
+                                        </div> */}
+                                        <div>
+                                            {/* <button className="login_createnew" onClick={this.switchPanel}>Sign up for Facebook</button> */}
+                                        </div>
                                     </div>
-                                    <div>
-                                        <input onChange={(event)=>{this.state.signin_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
+                                    :
+                                    <div container="login_panel">
+                                        <div>
+                                            <div className="signup_create">Create a new account</div>
+                                            <div className="signup_description">It's quick and easy</div>
+                                        </div>
+                                        <div>
+                                            <input onChange={(event)=>{this.state.signup_name=event.currentTarget.value}} type="text" className="login_input" placeholder="Name" />
+                                        </div>
+                                        <div>
+                                            <input onChange={(event)=>{this.state.signup_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
+                                        </div>
+                                        <div>
+                                            <input onChange={(event)=>{this.state.signup_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
+                                        </div>
+                                        <div className="signup_button_container">
+                                            <button onClick={this.signUP} className="signup_button">Sign Up</button>
+                                        </div>
+                                        <div>
+                                            <div onClick={this.switchPanel} className="forget_Text">Already have an account?</div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <input onChange={(event)=>{this.state.signin_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
-                                    </div>
-                                    <div>
-                                        <button onClick={this.signInMethod} className="login_button">Log in</button>
-                                    </div>
-                                    <div className="forget_Text">
-                                        <span>Forgotten account?</span>
-                                        <span onClick={this.switchPanel}>Sign up for Facebook</span>
-                                    </div>
-                                    {/* <div>
-                                        <div className="dividor"></div>
-                                    </div> */}
-                                    <div>
-                                        {/* <button className="login_createnew" onClick={this.switchPanel}>Sign up for Facebook</button> */}
-                                    </div>
-                                </div>
-                                :
-                                <div container="login_panel">
-                                    <div>
-                                        <div className="signup_create">Create a new account</div>
-                                        <div className="signup_description">It's quick and easy</div>
-                                    </div>
-                                    <div>
-                                        <input onChange={(event)=>{this.state.signup_name=event.currentTarget.value}} type="text" className="login_input" placeholder="Name" />
-                                    </div>
-                                    <div>
-                                        <input onChange={(event)=>{this.state.signup_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
-                                    </div>
-                                    <div>
-                                        <input onChange={(event)=>{this.state.signup_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
-                                    </div>
-                                    <div className="signup_button_container">
-                                        <button onClick={this.signUP} className="signup_button">Sign Up</button>
-                                    </div>
-                                    <div>
-                                        <div onClick={this.switchPanel} className="forget_Text">Already have an account?</div>
-                                    </div>
-                                </div>
-                            }
-
-                            </Paper>
+                                }
+                                </Paper>
+                            </div>
                     </Grid>
                     <Grid item xs={2}></Grid>
                 </Grid>

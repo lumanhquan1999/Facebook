@@ -2,11 +2,14 @@ package com.example.facebook.entity;
 
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 
 @Entity(name="Post")
@@ -21,14 +24,16 @@ public class Post {
 	private String description;
 	private String postImgURL;
 	private int likes;
-	private Timestamp dateTime;	
+	private Timestamp dateTime;
+	@OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Comment> comments;
 	
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Post(UUID postId, String userId, String userName, String imageURL, String description, String postImgURL,
-			int likes, Timestamp dateTime) {
+			int likes, Timestamp dateTime, List<Comment> comments) {
 		super();
 		this.postId = postId;
 		this.userId = userId;
@@ -38,6 +43,7 @@ public class Post {
 		this.postImgURL = postImgURL;
 		this.likes = likes;
 		this.dateTime = dateTime;
+		this.comments = comments;
 	}
 	
 	public UUID getPostId() {
@@ -87,5 +93,11 @@ public class Post {
 	}
 	public void setDateTime(Timestamp dateTime) {
 		this.dateTime = dateTime;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 }

@@ -32,6 +32,7 @@
     height: 40px;
     padding: 0 10px;;
     border-bottom: 1px solid #E6E7E9;
+    justify-content: space-between;
 }
 .post_like {
     
@@ -78,4 +79,39 @@
     font-size: 15px;
     padding-left: 20px;
     margin: 15px;
+}
+.post_commentSend {
+    position: absolute;
+    right: 25px;
+    top: 40%;
+    height: 20px;
+    cursor: pointer;
+}
+.comment_container {
+    display: inline-block;
+    position: relative;
+}
+.post_commentImage {
+    height: 20px;
+    margin-top: 3px;
+}
+.post_group {
+    display: flex;
+}
+.commentlist_container {
+    display: flex;
+    margin-bottom: 10px;
+}
+.comment {
+    margin-top: 5px;
+    margin-left: 10px;
+    border: 8px;
+    background-color: #EFF2F5;
+    border-radius: 10px;
+    width: 480px;
+    padding: 5px 15px;
+}
+.comment_userName {
+    font-weight: 500;
+    font-size: 15px;
 }
