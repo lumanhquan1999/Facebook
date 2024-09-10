@@ -1,43 +1,34 @@
 import { Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import "./LoginHome.css";
 
-class LoginHome extends Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {
-        signIN: true,
+const LoginHome = () => {
+    const [signIN, setSignIN] = useState(true);
+    const [signin_email, setSignin_email] = useState(null);
+    const [signin_password, setSignin_password] = useState(null);
+    const [signup_name, setSignup_name] = useState(null);
+    const [signup_email, setSignup_email] = useState(null);
+    const [signup_password, setSignup_password] = useState(null);
 
-        //signIN
-        signin_email: null,
-        signin_password: null,
-
-        //signup
-        signup_name: null,
-        signup_email: null,
-        signup_password: null
-    }
-
-    switchPanel = () => {
-        if (this.state.signIN)
-            this.setState({signIN: false});
+    const switchPanel = () => {
+        if (signIN)
+            setSignIN(false);
         else
-            this.setState({signIN: true});
+            setSignIN(true);
     }
 
-    signUP = () => {
-        createUserWithEmailAndPassword(auth, this.state.signup_email, this.state.signup_password)
+    const signUP = () => {
+        createUserWithEmailAndPassword(auth, signup_email, signup_password)
             .then((userCredential) => {
                 // Signed in 
                 var user = userCredential.user;
 
                 let sendContent = {
                     "userId": user.uid,
-                    "userName": this.state.signup_name,
+                    "userName": signup_name,
                     "userImageURL": ""
                 }
 
@@ -63,8 +54,8 @@ class LoginHome extends Component {
             });
     }
 
-    signInMethod = () => {
-        signInWithEmailAndPassword(auth, this.state.signin_email, this.state.signin_password)
+    const signInMethod = () => {
+        signInWithEmailAndPassword(auth, signin_email, signin_password)
             .then((userCredential) => {
                 // Signed in 
                 var user = userCredential.user;
@@ -82,75 +73,73 @@ class LoginHome extends Component {
                 // ..
             });
     }
-    render() { 
-        return (
-            <div className="main_container">
-                <Grid container>
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={8}>
-                        <div className="logincard_mid">
-                            <div className="fblogo">
-                                <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" width="240px" />
-                            </div>
-                            <Paper className="logincard_container">
-                                {
-                                    this.state.signIN == true ?
-                                
-                                    <div container="login_panel" >
-                                        <div className="login_header">
-                                            Log in to Facebook
-                                        </div>
-                                        <div>
-                                            <input onChange={(event)=>{this.state.signin_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
-                                        </div>
-                                        <div>
-                                            <input onChange={(event)=>{this.state.signin_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
-                                        </div>
-                                        <div>
-                                            <button onClick={this.signInMethod} className="login_button">Log in</button>
-                                        </div>
-                                        <div className="forget_Text">
-                                            <span>Forgotten account?</span>
-                                            <span onClick={this.switchPanel}>Sign up for Facebook</span>
-                                        </div>
-                                        {/* <div>
-                                            <div className="dividor"></div>
-                                        </div> */}
-                                        <div>
-                                            {/* <button className="login_createnew" onClick={this.switchPanel}>Sign up for Facebook</button> */}
-                                        </div>
+    return (
+        <div className="main_container">
+            <Grid container>
+                <Grid item xs={2}></Grid>
+                <Grid item xs={8}>
+                    <div className="logincard_mid">
+                        <div className="fblogo">
+                            <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" width="240px" />
+                        </div>
+                        <Paper className="logincard_container">
+                            {
+                                signIN == true ?
+                            
+                                <div container="login_panel" >
+                                    <div className="login_header">
+                                        Log in to Facebook
                                     </div>
-                                    :
-                                    <div container="login_panel">
-                                        <div>
-                                            <div className="signup_create">Create a new account</div>
-                                            <div className="signup_description">It's quick and easy</div>
-                                        </div>
-                                        <div>
-                                            <input onChange={(event)=>{this.state.signup_name=event.currentTarget.value}} type="text" className="login_input" placeholder="Name" />
-                                        </div>
-                                        <div>
-                                            <input onChange={(event)=>{this.state.signup_email=event.currentTarget.value}}  type="text" className="login_input" placeholder="Email address" />
-                                        </div>
-                                        <div>
-                                            <input onChange={(event)=>{this.state.signup_password=event.currentTarget.value}}  type="password" className="login_input" placeholder="Password"/>
-                                        </div>
-                                        <div className="signup_button_container">
-                                            <button onClick={this.signUP} className="signup_button">Sign Up</button>
-                                        </div>
-                                        <div>
-                                            <div onClick={this.switchPanel} className="forget_Text">Already have an account?</div>
-                                        </div>
+                                    <div>
+                                        <input onChange={(event)=>{setSignin_email(event.currentTarget.value)}}  type="text" className="login_input" placeholder="Email address" />
                                     </div>
-                                }
-                                </Paper>
-                            </div>
-                    </Grid>
-                    <Grid item xs={2}></Grid>
+                                    <div>
+                                        <input onChange={(event)=>{setSignin_password(event.currentTarget.value)}}  type="password" className="login_input" placeholder="Password"/>
+                                    </div>
+                                    <div>
+                                        <button onClick={signInMethod} className="login_button">Log in</button>
+                                    </div>
+                                    <div className="forget_Text">
+                                        <span>Forgotten account?</span>
+                                        <span onClick={switchPanel}>Sign up for Facebook</span>
+                                    </div>
+                                    {/* <div>
+                                        <div className="dividor"></div>
+                                    </div> */}
+                                    <div>
+                                        {/* <button className="login_createnew" onClick={this.switchPanel}>Sign up for Facebook</button> */}
+                                    </div>
+                                </div>
+                                :
+                                <div container="login_panel">
+                                    <div>
+                                        <div className="signup_create">Create a new account</div>
+                                        <div className="signup_description">It's quick and easy</div>
+                                    </div>
+                                    <div>
+                                        <input onChange={(event)=>{setSignup_name(event.currentTarget.value)}} type="text" className="login_input" placeholder="Name" />
+                                    </div>
+                                    <div>
+                                        <input onChange={(event)=>{setSignup_email(event.currentTarget.value)}}  type="text" className="login_input" placeholder="Email address" />
+                                    </div>
+                                    <div>
+                                        <input onChange={(event)=>{setSignup_password(event.currentTarget.value)}}  type="password" className="login_input" placeholder="Password"/>
+                                    </div>
+                                    <div className="signup_button_container">
+                                        <button onClick={signUP} className="signup_button">Sign Up</button>
+                                    </div>
+                                    <div>
+                                        <div onClick={switchPanel} className="forget_Text">Already have an account?</div>
+                                    </div>
+                                </div>
+                            }
+                            </Paper>
+                        </div>
                 </Grid>
-            </div>
-          );
-    }
+                <Grid item xs={2}></Grid>
+            </Grid>
+        </div>
+      );
 }
  
 export default LoginHome;
